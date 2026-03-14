@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { Badge } from "@components/ui/badge";
-import { Separator } from "@components/ui/separator";
+
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 export default function ArchitectureDiagram() {
   return (

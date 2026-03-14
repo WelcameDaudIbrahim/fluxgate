@@ -1,13 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
+
 import {
   Card,
-  CardHeader,
-  CardTitle,
   CardContent,
   CardDescription,
-} from "@components/ui/card";
-import { Separator } from "@components/ui/separator";
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 const CARDS = [
   {

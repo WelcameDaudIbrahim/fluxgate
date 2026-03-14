@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import { Orbitron, Inter } from "next/font/google";
 import "./globals.css";
+
+import type { Metadata } from "next";
+import { Inter,Orbitron } from "next/font/google";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -26,7 +27,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${orbitron.variable} ${inter.variable}`}>
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className={`${orbitron.variable} ${inter.variable}`}
+    >
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

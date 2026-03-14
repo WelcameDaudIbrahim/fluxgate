@@ -1,13 +1,15 @@
 "use client";
 import Link from "next/link";
-import { Button } from "@components/ui/button";
-import { Separator } from "@components/ui/separator";
+
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
-  NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
-} from "@components/ui/navigation-menu";
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
+
+import CTAButton from "../CTAButton";
 
 const NAV_LINKS = [
   { label: "Home", href: "#" },
@@ -19,8 +21,8 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-fg-bg border-b border-fg-border">
-      <div className="max-w-container mx-auto px-8">
+    <header className="sticky top-0 z-50 bg-fg-bg">
+      <div className="max-w-container m-auto! px-8 container">
         <div className="flex h-[68px] items-center justify-between">
           {/* Logo */}
           <Link
@@ -47,11 +49,10 @@ export default function Navbar() {
             variant="default"
             className="text-[16px] px-7 py-3 font-bold"
           >
-            <Link href="#">Start Free</Link>
+            <CTAButton />
           </Button>
         </div>
       </div>
-      <Separator />
     </header>
   );
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Separator } from "@components/ui/separator";
-import { Button } from "@components/ui/button";
+
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 const LINKS = [
   { label: "Home", href: "#" },
