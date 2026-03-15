@@ -10,17 +10,53 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
+const ICON_SIZE = 64;
+
 const CARDS = [
   {
+    title: "Traffic spikes",
+    desc: "Sudden bursts of traffic — whether from viral moments or coordinated attacks...",
+    Icon: ({ size }: { size: number }) => (
+      <svg viewBox="0 0 48 48" fill="none" width={size} height={size}>
+        <polyline
+          points="6,38 14,28 20,34 28,14 34,22 42,10"
+          stroke="#8B5CF6"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <line
+          x1="6"
+          y1="42"
+          x2="42"
+          y2="42"
+          stroke="#8B5CF6"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <line
+          x1="6"
+          y1="10"
+          x2="6"
+          y2="42"
+          stroke="#8B5CF6"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+  {
     title: "Bot traffic",
-    desc: "Automated bots can overwhelm your API endpoints with thousands of requests per second, degrading performance for legitimate users and consuming costly server resources.",
-    icon: (
+    desc: "Automated bots can overwhelm your API endpoints with thousands of requests per second...",
+    Icon: ({ size }: { size: number }) => (
       <svg
-        viewBox="0 0 48 48"
+        viewBox="6 6 36 36"
         fill="none"
+        width={size}
+        height={size}
         xmlns="http://www.w3.org/2000/svg"
-        width="48"
-        height="48"
+        className="block"
       >
         <rect
           x="10"
@@ -57,81 +93,25 @@ const CARDS = [
           strokeWidth="2"
           strokeLinecap="round"
         />
-        <path
-          d="M20 36 L28 36"
-          stroke="#8B5CF6"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
       </svg>
     ),
   },
   {
-    title: "Traffic spikes",
-    desc: "Sudden bursts of traffic — whether from viral moments or coordinated attacks — can crash your infrastructure, causing downtime and a poor user experience.",
-    icon: (
+    title: "Brute force",
+    desc: "Attackers systematically try millions of credential combinations against your API...",
+    Icon: ({ size }: { size: number }) => (
       <svg
-        viewBox="0 0 48 48"
+        viewBox="0 0 24 24"
+        width={size}
+        height={size}
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        width="48"
-        height="48"
+        stroke="#8B5CF6"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
-        <polyline
-          points="6,38 14,28 20,34 28,14 34,22 42,10"
-          stroke="#8B5CF6"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <line
-          x1="6"
-          y1="42"
-          x2="42"
-          y2="42"
-          stroke="#8B5CF6"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <line
-          x1="6"
-          y1="10"
-          x2="6"
-          y2="42"
-          stroke="#8B5CF6"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Brute force attacks",
-    desc: "Attackers systematically try millions of credential combinations against your API authentication endpoints, threatening account security and consuming significant compute resources.",
-    icon: (
-      <svg
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        width="48"
-        height="48"
-      >
-        <path
-          d="M24 6 L32 12 L32 26 Q32 36 24 42 Q16 36 16 26 L16 12 Z"
-          stroke="#8B5CF6"
-          strokeWidth="2"
-          strokeLinejoin="round"
-        />
-        <line
-          x1="24"
-          y1="19"
-          x2="24"
-          y2="27"
-          stroke="#8B5CF6"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <circle cx="24" cy="31" r="2" fill="#8B5CF6" />
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
     ),
   },
@@ -139,44 +119,43 @@ const CARDS = [
 
 export default function ProblemSection() {
   return (
-    <section id="problem" className="bg-fg-bg2 py-24">
+    <section id="problem" className=" py-24">
       <div className="max-w-container mx-auto px-8">
-        {/* Section heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="font-orbitron font-bold text-[38px] text-fg-txt tracking-[0.04em] text-center mb-14"
-        >
-          Why APIs Need Protection
+        <motion.h2 className="font-orbitron font-bold text-[38px] text-fg-txt text-center mb-16">
+          Why Apps Need Protection
         </motion.h2>
 
-        {/* shadcn Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 container mx-auto">
           {CARDS.map((card, i) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="h-full flex items-center justify-center"
+              transition={{ delay: i * 0.15 }}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              initial="hidden"
+              whileInView="visible"
             >
-              <Card className="h-full">
-                <CardHeader>
-                  {/* Icon */}
-                  <div className="mb-5">{card.icon}</div>
-                  <CardTitle>{card.title}</CardTitle>
-                </CardHeader>
+              <motion.div className="w-fit h-full rounded-xl p-0.5 from-primary via-transparent via-34%  to-transparent from bg-conic-0">
+                <Card className="z-10 rounded-xl h-full bg-background pb-8 pt-2.5 px-4 text-center border-none">
+                  <CardHeader className="flex flex-col items-center">
+                    <div className="flex items-center justify-center w-20 h-20">
+                      <card.Icon size={ICON_SIZE} />
+                    </div>
 
-                <Separator className="mx-8 w-auto my-0 opacity-40" />
-
-                <CardContent>
-                  <CardDescription className="text-[16px] leading-relaxed">
-                    {card.desc}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                    <CardTitle className="text-2xl mt-2.5">
+                      {card.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-1.5 px-0">
+                    <CardDescription className="text-[16px] leading-relaxed max-w-xs mx-auto">
+                      {card.desc}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </motion.div>
           ))}
         </div>

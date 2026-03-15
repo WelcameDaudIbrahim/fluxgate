@@ -21,7 +21,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-fg-bg">
+    <header className="sticky top-0 z-50 bg-background">
       <div className="max-w-container m-auto! px-8 container">
         <div className="flex h-17 items-center justify-between">
           {/* Logo */}
@@ -49,7 +49,7 @@ export default function Navbar() {
             variant="default"
             className="text-[16px] px-7 py-3 font-bold"
           >
-            <CTAButton />
+            <CTAButton className="px-4.5! py-2!" />
           </Button>
         </div>
       </div>

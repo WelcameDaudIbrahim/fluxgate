@@ -8,7 +8,7 @@ import HeroIllustration from "./HeroIllustration";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="bg-fg-bg overflow-hidden py-24">
+    <section id="hero" className="bg-background overflow-hidden py-24">
       <div className="max-w-container mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           {/* ── Left: Text ── */}
