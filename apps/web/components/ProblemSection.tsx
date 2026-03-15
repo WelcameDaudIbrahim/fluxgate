@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
 const ICON_SIZE = 64;
 
@@ -138,7 +137,9 @@ export default function ProblemSection() {
               initial="hidden"
               whileInView="visible"
             >
-              <motion.div className="w-fit h-full rounded-xl p-0.5 from-primary via-transparent via-34%  to-transparent from bg-conic-0">
+              <motion.div
+                className={`w-fit h-full rounded-xl p-0.5 from-primary via-transparent via-34%  to-transparent from`}
+              >
                 <Card className="z-10 rounded-xl h-full bg-background pb-8 pt-2.5 px-4 text-center border-none">
                   <CardHeader className="flex flex-col items-center">
                     <div className="flex items-center justify-center w-20 h-20">
